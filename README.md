@@ -1,4 +1,5 @@
 # umg-tracker-bot
+
 private tracker bot for UMG, can track specific username, globals and more (still in development)
 
 setting up is not very user friendly so ill try and expain some things.
