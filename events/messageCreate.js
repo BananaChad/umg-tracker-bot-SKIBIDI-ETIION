@@ -3,9 +3,9 @@ const util = require("../util.js");
 
 module.exports = async (client, message) => {
   if (
-    message.guild.id === "proxy guild id" &&
-    message.channel.id === "proxy channel id" &&
-    message.author.id === "proxy webhook id"
+    message.guild.id === "1201627080652243084" &&
+    message.channel.id === "1201627081101025427" &&
+    message.author.id === "1201629121260834866"
   ) {
     data.embedData = util.formatData(message);
 
@@ -28,7 +28,7 @@ module.exports = async (client, message) => {
 
     data.embedData = {
       ore: "",
-      varient: "",
+      variant: "",
       miner: "",
       position: "",
       pickaxe: "",

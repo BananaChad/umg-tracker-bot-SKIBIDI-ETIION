@@ -8,7 +8,7 @@ client.on("ready", async () => {
 
 let embedData = {
   ore: "",
-  varient: "", //no varient detection here yet
+  variant: "", //no variant detection here yet
   miner: "",
   position: "",
   pickaxe: "",
@@ -17,7 +17,9 @@ let embedData = {
   rare: false,
 };
 
-const hook = new WebhookClient({ url: "webhook url here (of proxy server)" });
+const hook = new WebhookClient({
+  url: "REDACTED",
+});
 
 client.on("messageCreate", async (message) => {
   if (
@@ -52,7 +54,7 @@ client.on("messageCreate", async (message) => {
 
   embedData = {
     ore: "",
-    varient: "",
+    variant: "",
     miner: "",
     position: "",
     pickaxe: "",
@@ -62,4 +64,4 @@ client.on("messageCreate", async (message) => {
   };
 });
 
-client.login("token here");
+client.login("REDACTED");
