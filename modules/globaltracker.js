@@ -1,6 +1,5 @@
 const server = require("../schema/guild.js");
 const { ChannelType } = require("discord.js");
-const ChannelIDValid = !isNaN(channel.config.globaltracker.channelID);
 
 module.exports.run = async (client, message, args, mentionFix, getUser) => {
   const category = await message.guild.channels.cache.find(
@@ -15,6 +14,7 @@ module.exports.run = async (client, message, args, mentionFix, getUser) => {
       "Tracker has not been setup, use the 'setup' command."
     );
   }
+  const ChannelIDValid = !isNaN(channel.config.globaltracker.channelID);
 
   if (ChannelIDValid) {
     return message.channel.send("Global tracker has already been setup.");
