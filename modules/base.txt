@@ -12,3 +12,9 @@ module.exports.config = {
     usages: [],
     examples: []
 }
+
+
+
+
+for laptop run npm install on ROOT and dumpbot folder, run dumper.js and app.js at the same time (opening 2 vs code powershell windows in the folders and doing node .)
+dont forget to import mongodb and install mongo on laptop

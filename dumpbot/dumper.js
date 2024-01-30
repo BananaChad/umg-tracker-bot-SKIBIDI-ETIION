@@ -1,9 +1,9 @@
-const { Client, WebhookClient } = require("discord.js-selfbot-v13")
+const { Client, WebhookClient } = require("discord.js-selfbot-v13");
 
 const client = new Client();
 
 client.on("ready", async () => {
-    console.log("selfbot online.");
+  console.log("selfbot online.");
 });
 
 const webhookUrls = {
