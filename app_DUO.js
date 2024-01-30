@@ -2,9 +2,6 @@ require("dotenv").config();
 
 const discord = require("discord.js");
 const botToken = process.env.botToken;
-//const userToken = process.env.clientToken; //WIP
-//const webhookToken = process.env.webhookToken; //WIP
-//ignore this wanna try implementing dumper but TOO LAZY TO check if discordjs and discord selfbot js can work together properly
 const client = new discord.Client({
 	intents: [
 		discord.GatewayIntentBits.Guilds,

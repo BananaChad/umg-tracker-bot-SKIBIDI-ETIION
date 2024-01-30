@@ -48,7 +48,7 @@ client.login(botToken); //please work :)
 const { Client, WebhookClient } = require("discord.js-selfbot-v13");
 const uClient = new Client();
 const webhookToken = process.env.webhookToken;
-const trackerWebhookToken = process.env.trackerWebhookToken;
+const TrackerWebhookToken = process.env.trackerWebhookToken;
 
 uClient.on("ready", async () => {
 	console.log("selfbot online.");
