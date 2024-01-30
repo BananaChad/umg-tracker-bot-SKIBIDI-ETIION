@@ -31,14 +31,14 @@ handle.getModules("./modules");
 handle.getDB("./mongo");
 
 //console.log(botToken);
-client.login(botToken); //please work :)
+client.login(botToken);
 
 (async () => {
 	await connect(process.env.mongoose).catch(console.error);
 })();
 
 // syaro was here
-
+//banana added the 2 in 1 special
 //what if i do a funny and copy paste everything from dumper to here
 //WHY DOES THAT ACTUALLY WORK LMFAOOOO
 //god this is a bad practice but it works so idc
@@ -48,7 +48,7 @@ client.login(botToken); //please work :)
 const { Client, WebhookClient } = require("discord.js-selfbot-v13");
 const uClient = new Client();
 const webhookToken = process.env.webhookToken;
-const TrackerWebhookToken = process.env.trackerWebhookToken;
+const trackerWebhookToken = process.env.trackersWebhookToken;
 
 uClient.on("ready", async () => {
 	console.log("selfbot online.");
@@ -56,12 +56,12 @@ uClient.on("ready", async () => {
 
 const webhookUrls = {
 	rarespawn: webhookToken, //proxy webhook token here!
-	normalTracker: TrackerWebhookToken, //proxy token here!
-	alteredTracker: TrackerWebhookToken, //proxy token here!
-	superAlteredTracker: TrackerWebhookToken, //proxy token here!
-	giganticTracker: TrackerWebhookToken, //proxy token here!
-	tinyTracker: TrackerWebhookToken, //proxy token here!
-	evilTracker: TrackerWebhookToken, //webhook token here!
+	normalTracker: trackerWebhookToken, //proxy token here!
+	alteredTracker: trackerWebhookToken, //proxy token here!
+	superAlteredTracker: trackerWebhookToken, //proxy token here!
+	giganticTracker: trackerWebhookToken, //proxy token here!
+	tinyTracker: trackerWebhookToken, //proxy token here!
+	evilTracker: trackerWebhookToken, //webhook token here!
 };
 
 const hooks = {};

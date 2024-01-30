@@ -2,40 +2,79 @@ const data = require("../data");
 const util = require("../util.js");
 
 module.exports = async (client, message) => {
-if (message.guild.id === "proxy" && message.channel.id === "proxy" && message.author.id === "proxy") {
-        data.embedData = util.formatData(message);
-        data.embedData.variant = util.variantDetector(message.embeds[0]);
+	if (
+		message.guild.id === "1201627080652243084" && //server id
+		message.channel.id === "1201627081101025427" && //rarespawn channel id
+		message.author.id === "1201979899074580561" //rarespawn webhook user id
+	) {
+		data.embedData = util.formatData(message);
+		data.embedData.variant = util.variantDetector(message.embeds[0]);
 
-        if (message.content) {
-            data.embedData.rare = true
-        }
+		if (message.content) {
+			data.embedData.rare = true;
+		}
 
-        const content = { embeds: [message.embeds[0]]};
-        //await util.sendRarespawn({ content: data.embedData.rare ? "@everyone" : " ", embeds: [message.embeds[0]]});
-        await util.sendRarespawn(content);
-        await util.sendUserspawn(content, data.embedData.miner.toLowerCase());
-        
-        if (util.convertToNumber(data.embedData.rng.split("/")[1].replace(/,/g, "")) >= 100000000) {
-            await util.sendGlobal(content);
-        }
+		const content = { embeds: [message.embeds[0]] };
+		//await util.sendRarespawn({ content: data.embedData.rare ? "@everyone" : " ", embeds: [message.embeds[0]]});
+		console.log("rarespawn recieved!");
+		await util.sendRarespawn(content);
+		console.log("sending to user specific channels");
+		await util.sendUserspawn(content, data.embedData.miner.toLowerCase());
+		console.log("Done! Onto the next");
 
-        data.embedData = { ore: "", variant: "", miner: "", position: "", pickaxe: "", rawChance: "", rng: "", rare: false }
-    }
+		if (
+			util.convertToNumber(
+				data.embedData.rng.split("/")[1].replace(/,/g, ""),
+			) >= 100000000
+		) {
+			await util.sendGlobal(content);
+		}
 
-    //copied from my old bot
-    if (!message.content.startsWith(process.env.prefix) || message.author.bot || message.channel.type === "dm") return;
+		data.embedData = {
+			ore: "",
+			variant: "",
+			miner: "",
+			position: "",
+			pickaxe: "",
+			rawChance: "",
+			rng: "",
+			rare: false,
+		};
+	}
 
-    const args = message.content.split(/ +/g);
-    const mentionFix = message.cleanContent.slice(process.env.prefix).split(" ").slice(1);
+	//copied from my old bot
+	if (
+		!message.content.startsWith(process.env.prefix) ||
+		message.author.bot ||
+		message.channel.type === "dm"
+	)
+		return;
 
-    const command = args.shift().slice(process.env.prefix).toLowerCase();
-    const register = data.commands.get(command.slice(process.env.prefix.length)) || data.commands.get(data.alias.get(command.slice(process.env.prefix.length)));
+	const args = message.content.split(/ +/g);
+	const mentionFix = message.cleanContent
+		.slice(process.env.prefix)
+		.split(" ")
+		.slice(1);
 
-    const getUser = () => {
-        return message.channel.guild.members.cache.find(r => r.user == message.mentions.users.first()) || message.guild.members.cache.get(args[0]) || message.channel.guild.members.cache.find(r => r.user.username === args[0]) || message.channel.guild.members.cache.find(r => r.user.tag === args[0]);
-    }
+	const command = args.shift().slice(process.env.prefix).toLowerCase();
+	const register =
+		data.commands.get(command.slice(process.env.prefix.length)) ||
+		data.commands.get(data.alias.get(command.slice(process.env.prefix.length)));
 
-    if (register) {
-        register.run(client, message, args, mentionFix, getUser);
-    }
-}
+	const getUser = () => {
+		return (
+			message.channel.guild.members.cache.find(
+				(r) => r.user === message.mentions.users.first(),
+			) ||
+			message.guild.members.cache.get(args[0]) ||
+			message.channel.guild.members.cache.find(
+				(r) => r.user.username === args[0],
+			) ||
+			message.channel.guild.members.cache.find((r) => r.user.tag === args[0])
+		);
+	};
+
+	if (register) {
+		register.run(client, message, args, mentionFix, getUser);
+	}
+};
