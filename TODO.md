@@ -2,9 +2,10 @@
 
 ## QOL improvements
 
-- [ ] Try merging dumper and app.js in one file, makes development environment less cluttered and adds for one .env file instead of editing code to add client tokens, webhooks etc. HIGH PRIORITY
-
-- [ ] expand upon .env so that no webhook or token leaks are exposed to people who self-hosted the bot
+- [X] merging dumper and app.js in one file, makes development environment less cluttered and adds for one .env file instead of editing code to add client tokens, webhooks etc. HIGH PRIORITY
+- [X] expand upon .env so that no webhook or token leaks are exposed to people who self-hosted the bot
+- [ ] make an INSTALL.md so people know how to use it
+- [ ] convert everything to / commands
 
 ## new features
 
