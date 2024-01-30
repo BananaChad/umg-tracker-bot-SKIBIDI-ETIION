@@ -1,3 +1,3 @@
 module.exports = () => {
-    console.log(`[DATABASE] MongoDB has been connected.`);
-}
+  console.log("[DATABASE] MongoDB has been connected.");
+};
