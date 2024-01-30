@@ -1,26 +1,20 @@
 const { Client, WebhookClient } = require("discord.js-selfbot-v13");
+const uClient = new Client();
+const webhookToken = process.env.webhookToken;
+const trackerWebhookToken = process.env.trackerWebhookToken;
 
-const client = new Client();
-
-client.on("ready", async () => {
+uClient.on("ready", async () => {
 	console.log("selfbot online.");
 });
 
 const webhookUrls = {
-	rarespawn:
-		"https://discord.com/api/webhooks/1201629121260834866/o6Gco9E6SDL-acDr0czBZDtI6veP4Sk_aGzIIqNEdfteRO1dDbwwC_BIDN7MBGaf9VLH",
-	normalTracker:
-		"https://discord.com/api/webhooks/1201960175460962315/ilnEHadUrJtgPp65-05G449_oGFQeVA6qOg3Qq-E73qgwF0Ntlx9scGNgHaOzl54TbDV",
-	alteredTracker:
-		"https://discord.com/api/webhooks/1201960175460962315/ilnEHadUrJtgPp65-05G449_oGFQeVA6qOg3Qq-E73qgwF0Ntlx9scGNgHaOzl54TbDV",
-	superAlteredTracker:
-		"https://discord.com/api/webhooks/1201960175460962315/ilnEHadUrJtgPp65-05G449_oGFQeVA6qOg3Qq-E73qgwF0Ntlx9scGNgHaOzl54TbDV",
-	giganticTracker:
-		"https://discord.com/api/webhooks/1201960175460962315/ilnEHadUrJtgPp65-05G449_oGFQeVA6qOg3Qq-E73qgwF0Ntlx9scGNgHaOzl54TbDV",
-	tinyTracker:
-		"https://discord.com/api/webhooks/1201960175460962315/ilnEHadUrJtgPp65-05G449_oGFQeVA6qOg3Qq-E73qgwF0Ntlx9scGNgHaOzl54TbDV",
-	evilTracker:
-		"https://discord.com/api/webhooks/1201960175460962315/ilnEHadUrJtgPp65-05G449_oGFQeVA6qOg3Qq-E73qgwF0Ntlx9scGNgHaOzl54TbDV",
+	rarespawn: webhookToken, //we have to use a separate token for rarespawns as otherwise the code breaks
+	normalTracker: TrackerWebhookToken,
+	alteredTracker: TrackerWebhookToken,
+	superAlteredTracker: TrackerWebhookToken,
+	giganticTracker: TrackerWebhookToken,
+	tinyTracker: TrackerWebhookToken,
+	evilTracker: TrackerWebhookToken,
 };
 
 const hooks = {};
@@ -29,9 +23,11 @@ for (const [key, url] of Object.entries(webhookUrls)) {
 	hooks[`${key}Hook`] = new WebhookClient({ url });
 }
 
-let embedData = { rare: false };
+let embedData = {
+	rare: false,
+};
 
-client.on("messageCreate", async (message) => {
+uClient.on("messageCreate", async (message) => {
 	const guildId = "1059506407826788393";
 	const trackers = {
 		"1059846328772993064": {
@@ -79,11 +75,6 @@ client.on("messageCreate", async (message) => {
 		}
 	}
 
-	embedData = {
-		rare: false,
-	};
+	embedData = { rare: false };
 });
-
-client.login(
-	"NTcxMzg0NjI4NjQwODc0NTE4.GT0fBw.XeLZaxd79X38uNSB6vl-FdhTbqKrTCuxJysDCY",
-);
+uClient.login(userToken);
