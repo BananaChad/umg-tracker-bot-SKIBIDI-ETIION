@@ -31,7 +31,7 @@ handle.getEvents("./events", client);
 handle.getModules("./modules");
 handle.getDB("./mongo");
 
-//console.log(botToken);
+console.log(botToken);
 client.login(botToken); //please work :)
 
 (async () => {

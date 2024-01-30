@@ -8,4 +8,4 @@ but ill make a video on it some day
 userbot -> proxy server -> tracker bot
 
 uses a userbot to read the embeds and posts it in a server and then tracker bot reads from that server and handles it
-youll have to change the id's in the code and setup a database for it to run.
+you'll have to change the id's in the code and setup a database for it to run.
