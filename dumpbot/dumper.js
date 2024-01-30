@@ -53,6 +53,11 @@ client.on("messageCreate", async (message) => {
         rare: false
     };
 });
+<<<<<<< HEAD
 
 client.login("token here");
 
+=======
+
+client.login("token here");
+>>>>>>> 678a2af (Update dumper.js)
