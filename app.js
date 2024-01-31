@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const discord = require("discord.js");
 const botToken = process.env.botToken;
-const userToken = process.env.clientToken;
+const userToken = process.env.userToken;
 //ignore this wanna try implementing dumper but TOO LAZY TO check if discordjs and discord selfbot js can work together properly (im in hell)
 const client = new discord.Client({
 	intents: [
@@ -31,14 +31,14 @@ handle.getModules("./modules");
 handle.getDB("./mongo");
 
 //console.log(botToken);
-client.login(botToken);
+client.login(botToken); //please work :)
 
 (async () => {
 	await connect(process.env.mongoose).catch(console.error);
 })();
 
 // syaro was here
-//banana added the 2 in 1 special
+
 //what if i do a funny and copy paste everything from dumper to here
 //WHY DOES THAT ACTUALLY WORK LMFAOOOO
 //god this is a bad practice but it works so idc
@@ -48,7 +48,7 @@ client.login(botToken);
 const { Client, WebhookClient } = require("discord.js-selfbot-v13");
 const uClient = new Client();
 const webhookToken = process.env.webhookToken;
-const trackerWebhookToken = process.env.trackersWebhookToken;
+const trackerWebhookToken = process.env.trackerWebhookToken;
 
 uClient.on("ready", async () => {
 	console.log("selfbot online.");

@@ -17,6 +17,6 @@
     "pm2": "^5.3.1"
   },
   "devDependencies": {
-    "eslint": "^8.56.0"
+    "@biomejs/biome": "^1.5.3"
   }
 }
