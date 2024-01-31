@@ -1,13 +1,13 @@
-const server = require("../schema/guild.js");
+const server = require("../database/schema/guild.js");
 const { ChannelType } = require("discord.js");
 
 module.exports.run = async (client, message, args, mentionFix, getUser) => {
 	const category = await message.guild.channels.cache.find(
 		(c) => c.type === ChannelType.GuildCategory && c.name === "syaro tracker",
 	);
-	let channel = await server
-		.findOne({ guildId: message.guild.id })
-		.catch((err) => console.log(err));
+	console.log("fault guildid is:", guildId);
+	let channel = await server.findOne({ guildId: message.guild.id });
+	console.log(guildId).catch((err) => console.log(err));
 
 	if (!category) {
 		return message.channel.send(
@@ -15,10 +15,10 @@ module.exports.run = async (client, message, args, mentionFix, getUser) => {
 		);
 	}
 
-	if (!Number.isNaN(channel.config.globaltracker.channelID)) {
+	if (!isNaN(channel.config.globaltracker.channelIDS)) {
 		return message.channel.send("Global tracker has already been setup.");
 	}
-	if (Number.isNaN(channel.config.globaltracker.channelID)) {
+	if (isNaN(channel.config.globaltracker.channelID)) {
 		channel = await message.guild.channels.create({
 			name: "global-tracker",
 			type: ChannelType.GuildText,

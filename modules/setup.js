@@ -1,4 +1,4 @@
-const server = require("../schema/guild.js");
+const server = require("../database/schema/guild.js");
 const { ChannelType } = require("discord.js");
 
 module.exports.run = async (client, message, args, mentionFix, getUser) => {
@@ -16,11 +16,11 @@ module.exports.run = async (client, message, args, mentionFix, getUser) => {
 		});
 	}
 
-	if (!Number.isNaN(channel.config.rarespawn.channelID)) {
+	if (!isNaN(channel.config.rarespawn.channelID)) {
 		return message.channel.send("Tracker has already been setup.");
 	}
 
-	if (Number.isNaN(channel.config.rarespawn.channelID)) {
+	if (isNaN(channel.config.rarespawn.channelID)) {
 		channel = await message.guild.channels.create({
 			name: "rare-spawn",
 			type: ChannelType.GuildText,

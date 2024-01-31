@@ -1,4 +1,4 @@
-const server = require("../schema/guild.js");
+const server = require("../database/schema/guild.js");
 
 module.exports = async (client, guild) => {
 	await server.findOneAndDelete({ guildId: guild.id });

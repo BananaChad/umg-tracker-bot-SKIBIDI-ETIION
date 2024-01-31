@@ -1,8 +1,9 @@
 const { WebhookClient } = require("discord.js");
-const server = require("./schema/guild.js");
+const server = require("./database/schema/guild.js");
 
 const getInfo = async () => {
 	const data = await server.find({});
+	console.log(data);
 	return data;
 };
 
@@ -16,7 +17,6 @@ const sendRarespawn = async (msg) => {
 	const data = await getInfo();
 	for (const id of data) {
 		if (Number.isNaN(id.config.rarespawn.webhookID)) continue;
-
 		try {
 			sendHook(
 				id.config.rarespawn.webhookID,

@@ -1,4 +1,4 @@
-const server = require("../schema/guild.js");
+const server = require("../database/schema/guild.js");
 const util = require("../util.js");
 
 module.exports = async (client, channel) => {

@@ -1,4 +1,4 @@
-const server = require("../schema/guild.js");
+const server = require("../database/schema/guild.js");
 const mongoose = require("mongoose");
 
 const { ChannelType, PermissionsBitField } = require("discord.js");

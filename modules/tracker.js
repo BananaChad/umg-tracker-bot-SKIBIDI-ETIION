@@ -1,4 +1,4 @@
-const server = require("../schema/guild.js");
+const server = require("../database/schema/guild.js");
 const { ChannelType } = require("discord.js");
 
 module.exports.run = async (client, message, args, mentionFix, getUser) => {

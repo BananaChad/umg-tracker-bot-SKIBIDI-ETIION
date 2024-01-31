@@ -31,7 +31,7 @@ handle.getModules("./modules");
 handle.getDB("./mongo");
 
 //console.log(botToken);
-client.login(botToken); //please work :)
+client.login(botToken);
 
 (async () => {
 	await connect(process.env.mongoose).catch(console.error);
