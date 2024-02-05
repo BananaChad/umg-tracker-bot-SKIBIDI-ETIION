@@ -27,7 +27,9 @@ module.exports.run = async (client, message, args, mentionFix, getUser) => {
 					(c) => c.username === args[1].toLowerCase(),
 				)?.channelID,
 		);
-
+		if (args[1] === "@everyone" || args[1] === "@here") {
+			return message.channel.send("nice try smartass");
+		}
 		if (channel) {
 			return message.channel.send("This user is already being tracked.");
 		}
@@ -48,6 +50,7 @@ module.exports.run = async (client, message, args, mentionFix, getUser) => {
 		}
 
 		await server
+
 			.findOneAndUpdate(
 				{ guildId: message.guild.id },
 				{
