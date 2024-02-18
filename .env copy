@@ -1,0 +1,6 @@
+botToken = "your bot token"
+prefix = >
+mongoose = mongodb connection string
+clientToken = "your discord login token"
+webhookToken = "rarespawn webhook"
+trackersWebhookToken = "tracker webhook"
